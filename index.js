@@ -36,4 +36,4 @@ function Server(password) {
   }
 }
 
-module.export = Server;
+module.exports = Server;
