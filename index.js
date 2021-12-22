@@ -23,7 +23,7 @@ function Server() {
     });
   }
   this.stopCron = function() {
-    if (that.task === null) {
+    if (this.task === null) {
       return;
     }
     this.task.stop();
