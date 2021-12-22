@@ -15,10 +15,10 @@ function Server() {
   this.app = app;
   this.task = null;
   this.startCron = function() {
-    if (that.task !== null) {
+    if (this.task !== null) {
       throw new Error("Cron is already started");
     }
-    that.task = cron.schedule("0 0 0 1 * *", () => {
+    this.task = cron.schedule("0 0 0 1 * *", () => {
       keep(that.cids);
     });
   }
@@ -26,8 +26,8 @@ function Server() {
     if (that.task === null) {
       return;
     }
-    that.task.stop();
-    that.task = null;
+    this.task.stop();
+    this.task = null;
   }
 }
 
