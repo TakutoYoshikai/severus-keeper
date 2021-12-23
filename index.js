@@ -12,8 +12,8 @@ function Server(password) {
       res.status(403).send();
       return;
     }
-    if (!(cid in this.cids)) {
-      this.cids.push(cid);
+    if (!(cid in that.cids)) {
+      that.cids.push(cid);
     }
     res.status(201).send();
   });
