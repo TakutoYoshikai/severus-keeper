@@ -9,13 +9,17 @@ function Server(password) {
   app.get("/:cid", (req, res) => {
     const cid = req.params.cid;
     if (req.query.pw !== password) {
-      res.status(403).send();
+      res.status(403).json({
+        message: "Forbidden",
+      });
       return;
     }
     if (!(cid in that.cids)) {
       that.cids.push(cid);
     }
-    res.status(201).send();
+    res.status(201).json({
+      message: "Registered",
+    });
   });
   this.app = app;
   this.task = null;
